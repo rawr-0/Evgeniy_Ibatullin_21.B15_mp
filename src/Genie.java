@@ -18,6 +18,14 @@ public class Genie extends Unit{
     protected void ability() {
 
     }
+    @Override
+    protected void attack(){
+
+    }
+    @Override
+    protected void defend(){
+
+    }
 
     @Override
     protected boolean death() {

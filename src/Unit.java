@@ -21,6 +21,8 @@ public abstract class Unit {
         this.position = position;
     }
     protected abstract void ability();
+    protected abstract void attack();
+    protected abstract void defend();
     protected abstract boolean death();
     protected abstract void move();
 }

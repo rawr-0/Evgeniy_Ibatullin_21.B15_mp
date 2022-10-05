@@ -20,6 +20,16 @@ public class Archmage extends Unit {
     }
 
     @Override
+    protected void attack() {
+
+    }
+
+    @Override
+    protected void defend() {
+
+    }
+
+    @Override
     protected boolean death() {
         return false;
     }
