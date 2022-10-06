@@ -1,4 +1,5 @@
 import java.util.Optional;
+import java.util.Random;
 
 public abstract class Unit {
 
@@ -12,6 +13,8 @@ public abstract class Unit {
 //    protected int my_id;
     protected int position;
     protected int damage_min;
+
+    protected int damage_min_now;
     protected int damage_max;
     protected int damage_max_now;
     protected int speed;
@@ -24,6 +27,7 @@ public abstract class Unit {
         this.attack = attack; this.speed =speed; this.damage_min=damage_min;
         this.damage_max=damage_max; this.range=range;
         damage_max_now = damage_max;
+        damage_min_now = damage_min;
         armor_now = 0;
     }
     protected String say_name(){
@@ -33,9 +37,11 @@ public abstract class Unit {
         position = pos;
     }
     protected abstract void ability(Unit cast);
-    protected void take_damage(int damage_min,int damage_max_now){
-        if(damage_max_now - armor_now > 0) {
-            health_points -= (damage_max_now - armor_now);
+    protected void take_damage(int damage_min_now,int damage_max_now){
+        Random random = new Random();
+        int q = random.nextInt((damage_max_now+1)-damage_min_now)+damage_min_now;
+        if(q - armor_now > 0) {
+            health_points -= (q - armor_now);
         }
         else System.out.print(name + " absorb damage\n");
         death();
@@ -64,6 +70,7 @@ public abstract class Unit {
         timer++;
         if(timer == 3){
             damage_max_now = damage_max;
+            damage_min_now = damage_min;
             timer = 0;
         }
     }

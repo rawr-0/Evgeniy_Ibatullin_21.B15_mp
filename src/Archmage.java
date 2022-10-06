@@ -6,6 +6,7 @@ public class Archmage extends Unit {
     @Override
     protected void ability(Unit cast) {
         damage_max_now += 2;
+        damage_min_now += 2;
         System.out.print("Archmage cast strengthening\n");
     }
 }
