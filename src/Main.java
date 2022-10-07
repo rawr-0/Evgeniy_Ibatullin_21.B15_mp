@@ -4,7 +4,7 @@ public class Main {
     public static void action(Archmage a,Genie g){
         Random random = new Random();
         for(int i = random.nextInt(2);g.is_alive() & a.is_alive();i++){
-            //System.out.print(g.health_points); System.out.print(" "); System.out.print(a.health_points); System.out.print("\n");
+            //System.out.print(a.damage_min_now); System.out.print(" "); System.out.print(a.damage_max_now); System.out.print("\n");
             if(i % 2 == 0){
                 int q = random.nextInt(5);
                 if(q == 0)

@@ -36,9 +36,9 @@ public abstract class Unit {
         position = pos;
     }
     protected abstract void ability(Unit cast);
-    protected void take_damage(int damage_min_now,int damage_max_now){
+    protected void take_damage(int take_damage_min,int take_damage_max){
         Random random = new Random();
-        int q = random.nextInt((damage_max_now+1)-damage_min_now)+damage_min_now;
+        int q = random.nextInt((take_damage_max+1)-take_damage_min)+take_damage_min;
         if(q - armor_now > 0) {
             health_points -= (q - armor_now);
         }
@@ -50,7 +50,7 @@ public abstract class Unit {
         if(attacked.is_alive()) {
             if (range) {
                 System.out.print(name + " range attacked " + attacked.say_name()+"\n");
-                attacked.take_damage(damage_min, damage_max_now);
+                attacked.take_damage(damage_min_now, damage_max_now);
             } else {
                 if (speed >= Math.abs(position - attacked.position)) {
                     System.out.print(name + " attacked " + attacked.say_name()+"\n");
@@ -58,7 +58,7 @@ public abstract class Unit {
                         position = attacked.position -1;
                     else
                         position = attacked.position +1;
-                    attacked.take_damage(damage_min, damage_max_now);
+                    attacked.take_damage(damage_min_now, damage_max_now);
                 }
                 else move(attacked.position);
             }

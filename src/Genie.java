@@ -6,7 +6,11 @@ public class Genie extends Unit{
     @Override
     protected void ability(Unit cast) {
         cast.damage_max_now -= 5;
+        if(cast.damage_max_now < 1)
+            cast.damage_max_now = 1;
         cast.damage_min_now -= 5;
+        if(cast.damage_min_now < 1)
+            cast.damage_min_now = 1;
         System.out.print("Genie cast weakness\n");
     }
 }
